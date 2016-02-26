@@ -2,34 +2,34 @@
 <DBEmulation>
   <Games>
     <Game>
-      <Id>0d6c51df-be9b-48c6-9c8d-86b5c05c339a</Id>
+      <Id>5e7ca657-2d4d-4981-ba94-12676884e507</Id>
       <Name>Game1</Name>
     </Game>
     <Game>
-      <Id>9dda4874-4a08-49ca-a9b2-11d16871eb38</Id>
+      <Id>a98fd033-574e-45d2-8874-4c56dd2c297b</Id>
       <Name>Game2</Name>
     </Game>
   </Games>
   <Members>
     <Member>
-      <Id>f5095a4e-5ee9-4fe1-961a-5850698c423e</Id>
+      <Id>997ddb44-889e-4d5a-82ee-0e0b9aded7db</Id>
       <Name>Pevlik</Name>
       <Surname>Morozov</Surname>
     </Member>
   </Members>
   <Participants>
     <Participant>
-      <Id>12c930be-0007-4c42-a5f3-c227492ec41e</Id>
+      <Id>833dffa0-bd8c-4a1a-9693-51d5362550e2</Id>
       <Name>Part1</Name>
-      <Tournament>d03bb9a9-fe77-419d-8815-7a812d846273</Tournament>
-      <Member>b2ecca93-55d7-4767-aaed-53c65dbd6563</Member>
+      <Tournament>816666a1-878e-4a8d-b54b-40627b977798</Tournament>
+      <Member>94b1a65e-f7f3-4188-b946-13822a726205</Member>
     </Participant>
   </Participants>
   <Tournaments>
     <Tournament>
-      <Id>d03bb9a9-fe77-419d-8815-7a812d846273</Id>
+      <Id>816666a1-878e-4a8d-b54b-40627b977798</Id>
       <Name>Tournament1</Name>
-      <Game>0d6c51df-be9b-48c6-9c8d-86b5c05c339a</Game>
+      <Game>5e7ca657-2d4d-4981-ba94-12676884e507</Game>
     </Tournament>
   </Tournaments>
 </DBEmulation>
