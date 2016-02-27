@@ -9,6 +9,10 @@
       <Id>a98fd033-574e-45d2-8874-4c56dd2c297b</Id>
       <Name>Game2</Name>
     </Game>
+    <Game>
+      <Id>105c4c6f-d0c4-4659-8ba1-b7db182b13ee</Id>
+      <Name>WoW</Name>
+    </Game>
   </Games>
   <Members>
     <Member>
@@ -16,12 +20,22 @@
       <Name>Pevlik</Name>
       <Surname>Morozov</Surname>
     </Member>
+    <Member>
+      <Id>70432dcf-258a-42ff-b6fa-1ba64abcfd38</Id>
+      <Name>Dunya</Name>
+      <Surname>Batkovna</Surname>
+    </Member>
   </Members>
   <Participants>
     <Participant>
       <Id>833dffa0-bd8c-4a1a-9693-51d5362550e2</Id>
       <Tournament>816666a1-878e-4a8d-b54b-40627b977798</Tournament>
-      <Member>94b1a65e-f7f3-4188-b946-13822a726205</Member>
+      <Member>997ddb44-889e-4d5a-82ee-0e0b9aded7db</Member>
+    </Participant>
+    <Participant>
+      <Id>a44bdcdd-b574-454f-88b9-ad52a378ab06</Id>
+      <Tournament>f973660b-99e5-4c03-a0ad-59c4ea10941a</Tournament>
+      <Member>70432dcf-258a-42ff-b6fa-1ba64abcfd38</Member>
     </Participant>
   </Participants>
   <Tournaments>
@@ -29,6 +43,11 @@
       <Id>816666a1-878e-4a8d-b54b-40627b977798</Id>
       <Name>Tournament1</Name>
       <Game>5e7ca657-2d4d-4981-ba94-12676884e507</Game>
+    </Tournament>
+    <Tournament>
+      <Id>f973660b-99e5-4c03-a0ad-59c4ea10941a</Id>
+      <Name>WoWChamp</Name>
+      <Game>105c4c6f-d0c4-4659-8ba1-b7db182b13ee</Game>
     </Tournament>
   </Tournaments>
 </DBEmulation>
