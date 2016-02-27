@@ -422,7 +422,7 @@ namespace OOP_GameClub {
 		dbData->AddNewItem(m1);
 		Tournament^ t1 = gcnew Tournament("Tournament1", g1->GetId());
 		dbData->AddNewItem(t1);
-		Participant^ p1 = gcnew Participant("Part1", t1->GetId(), m1->GetId());
+		Participant^ p1 = gcnew Participant(t1->GetId(), m1->GetId());
 		dbData->AddNewItem(p1);
 
 		dbData->Save();
@@ -458,7 +458,7 @@ namespace OOP_GameClub {
 		dbData->AddNewItem(m1);
 		Tournament^ t1 = gcnew Tournament(tourNameTB->Text, g1->GetId());
 		dbData->AddNewItem(t1);
-		Participant^ p1 = gcnew Participant(memberSurnameTB->Text + "in" + tourNameTB->Text, t1->GetId(), m1->GetId());
+		Participant^ p1 = gcnew Participant(t1->GetId(), m1->GetId());
 		dbData->AddNewItem(p1);
 
 		dbData->Save();

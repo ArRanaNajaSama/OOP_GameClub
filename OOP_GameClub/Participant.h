@@ -1,50 +1,36 @@
 #pragma once
 
-#include "Base.h"
-
 /*!
 * Class that represents DB item Participant
 * Connects player and tournament in which he participates
 */
-ref class Participant : public Base
+ref class Participant
 {
+	/* unique identifier of object */
+	System::Guid Id;
 	/* unique identifier of Tournament object */
 	System::Guid TournamentId;
 	/* unique identifier of Member object */
 	System::Guid MemberId;
 
 public:
-	Participant()
-		: Base()
+	Participant(System::Guid tournament, System::Guid member)
 	{
-		TournamentId = System::Guid::NewGuid();
-		MemberId = System::Guid::NewGuid();
-	}
-
-	Participant(System::String^ name)
-		: Base()
-	{
-		Name = name;
-		TournamentId = System::Guid::NewGuid();
-		MemberId = System::Guid::NewGuid();
-	}
-
-	Participant(System::String^ name, System::Guid tournament)
-		: Base()
-	{
-		Name = name;
+        Id = System::Guid::NewGuid();
 		TournamentId = tournament;
-		MemberId = System::Guid::NewGuid();
+		MemberId = member;
 	}
 
-	Participant(System::String^ name, System::Guid tournament, System::Guid member)
-		: Base()
+    System::Guid GetId()
 	{
-		Name = name;
-		TournamentId = tournament;
-		MemberId = System::Guid::NewGuid();
+		return Id;
 	}
-
+    
+    void SetId(System::Guid id)
+	{
+		Id = id;
+	}
+    
 	System::Guid GetTournamentId()
 	{
 		return TournamentId;

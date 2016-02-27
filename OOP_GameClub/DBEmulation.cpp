@@ -161,6 +161,28 @@ System::Collections::Generic::Dictionary<System::Guid, Tournament^>^ DBEmulation
 	return TournamentItems;
 }
 
+System::Guid DBEmulation::GetTournamentByMember(System::Guid memberId)
+{
+	for each(KeyValuePair<System::Guid, Participant^>^ item in ParticipantItems)
+	{
+        if (item->Value->GetMemberId() == memberId)
+        {
+            return item->Value->GetTournamentId();
+        }
+	}
+}
+
+System::Guid DBEmulation::GetMemberByTournament(System::Guid turnamentId)
+{
+	for each(KeyValuePair<System::Guid, Participant^>^ item in ParticipantItems)
+	{
+        if (item->Value->GetTournamentId() == turnamentId)
+        {
+            return item->Value->GetMemberId();
+        }
+	}
+}
+
 System::Xml::XmlNode^ DBEmulation::GameSerialisation(System::Xml::XmlDocument^ doc, Game^ game)
 {
 	XmlNode^ item = doc->CreateElement("Game");
@@ -193,14 +215,11 @@ System::Xml::XmlNode^ DBEmulation::ParticipantSerialisation(System::Xml::XmlDocu
 	XmlElement^ item = doc->CreateElement("Participant");
 	XmlElement^ id = doc->CreateElement("Id");
 	id->InnerText = participant->GetId().ToString();
-	XmlElement^ name = doc->CreateElement("Name");
-	name->InnerText = participant->GetName();
 	XmlElement^ tour = doc->CreateElement("Tournament");
 	tour->InnerText = participant->GetTournamentId().ToString();
 	XmlElement^ member = doc->CreateElement("Member");
 	member->InnerText = participant->GetMemberId().ToString();
 	item->AppendChild(id);
-	item->AppendChild(name);
 	item->AppendChild(tour);
 	item->AppendChild(member);
 	return item;
@@ -271,9 +290,7 @@ Participant^ DBEmulation::ParticipantDeserialisation(System::Xml::XmlNode^ parti
 	Guid id;
 	for (int i = 0; i < fields->Count; ++i) {
 		XmlNode^ item = fields->Item(i);
-		if (item->Name == "Name") {
-			name = gcnew String(item->InnerText);
-		} else if (item->Name == "Id") {
+		if (item->Name == "Id") {
 			id = Guid(item->InnerText);
 		} else if (item->Name == "Tournament") {
 			tournament = Guid(item->InnerText);
@@ -282,7 +299,7 @@ Participant^ DBEmulation::ParticipantDeserialisation(System::Xml::XmlNode^ parti
 		}
 	}
 
-	Participant ^p = gcnew Participant(name, tournament, member);
+	Participant ^p = gcnew Participant(tournament, member);
 	p->SetId(id);
 	return p;
 }
