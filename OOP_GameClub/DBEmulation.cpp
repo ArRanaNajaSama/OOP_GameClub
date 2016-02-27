@@ -172,15 +172,17 @@ System::Guid DBEmulation::GetTournamentByMember(System::Guid memberId)
 	}
 }
 
-System::Guid DBEmulation::GetMemberByTournament(System::Guid turnamentId)
+System::Collections::Generic::List<System::Guid>^ DBEmulation::GetMembersByTournament(System::Guid turnamentId)
 {
+	List<Guid>^ result = gcnew List<Guid>();
 	for each(KeyValuePair<System::Guid, Participant^>^ item in ParticipantItems)
 	{
         if (item->Value->GetTournamentId() == turnamentId)
         {
-            return item->Value->GetMemberId();
+			result->Add(item->Value->GetMemberId());
         }
 	}
+	return result;
 }
 
 System::Xml::XmlNode^ DBEmulation::GameSerialisation(System::Xml::XmlDocument^ doc, Game^ game)

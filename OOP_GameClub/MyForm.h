@@ -51,32 +51,16 @@ namespace OOP_GameClub {
 	private: System::Windows::Forms::Label^  label6;
 	private: System::Windows::Forms::Label^  tourNumberL;
 	private: System::Windows::Forms::GroupBox^  groupBox1;
-
-
-
 	private: System::Windows::Forms::GroupBox^  groupBox2;
 	private: System::Windows::Forms::Button^  saveBtn;
-
-
-
-
 	private: System::Windows::Forms::TextBox^  memberSurnameTB;
 	private: System::Windows::Forms::Label^  label7;
 	private: System::Windows::Forms::TextBox^  memberNameTB;
 	private: System::Windows::Forms::Label^  label5;
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::GroupBox^  groupBox3;
 	private: System::Windows::Forms::GroupBox^  groupBox4;
 	private: System::Windows::Forms::TextBox^  tourGameNameTB;
-
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::GroupBox^  groupBox5;
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
@@ -85,9 +69,6 @@ namespace OOP_GameClub {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column3;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::TextBox^  tourNameTB;
-
-
-
 	private: DBEmulation^ dbData;
 
 #pragma region Windows Form Designer generated code

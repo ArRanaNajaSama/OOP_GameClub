@@ -40,7 +40,7 @@ public:
 
 	/* get bound between Member and Turnament */
 	System::Guid GetTournamentByMember(System::Guid memberId);
-	System::Guid GetMemberByTournament(System::Guid turnamentId);
+	System::Collections::Generic::List<System::Guid>^ GetMembersByTournament(System::Guid turnamentId);
 
 private:
 	System::Xml::XmlNode^ GameSerialisation(System::Xml::XmlDocument^ doc, Game^ game);
