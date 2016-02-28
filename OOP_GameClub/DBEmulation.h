@@ -32,6 +32,8 @@ public:
 	void AddNewItem(Participant^ participant);
 	void AddNewItem(Tournament^ tournament);
 
+	void RemoveItem(System::Guid tournamentId);
+
 	/* getters that allows to access item storages */
 	System::Collections::Generic::Dictionary<System::Guid, Game^>^ GetGameItems();
 	System::Collections::Generic::Dictionary<System::Guid, Member^>^ GetMemberItems();

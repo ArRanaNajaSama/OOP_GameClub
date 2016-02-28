@@ -64,6 +64,7 @@ namespace OOP_GameClub {
 	private: System::Windows::Forms::TextBox^  tourGameNameTB;
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::GroupBox^  groupBox5;
+    private: System::Windows::Forms::Button^  deleteBtn;
 
 
 
@@ -105,6 +106,7 @@ namespace OOP_GameClub {
 				 this->label10 = (gcnew System::Windows::Forms::Label());
 				 this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 				 this->saveBtn = (gcnew System::Windows::Forms::Button());
+                 this->deleteBtn = (gcnew System::Windows::Forms::Button());
 				 this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
 				 this->MemberLV = (gcnew System::Windows::Forms::ListView());
 				 this->GameLV = (gcnew System::Windows::Forms::ListView());
@@ -359,6 +361,7 @@ namespace OOP_GameClub {
 				 this->groupBox5->Controls->Add(this->MemberLV);
 				 this->groupBox5->Controls->Add(this->GameLV);
 				 this->groupBox5->Controls->Add(this->TourLV);
+                 this->groupBox5->Controls->Add(this->deleteBtn);
 				 this->groupBox5->Location = System::Drawing::Point(16, 238);
 				 this->groupBox5->Margin = System::Windows::Forms::Padding(4);
 				 this->groupBox5->Name = L"groupBox5";
@@ -396,6 +399,17 @@ namespace OOP_GameClub {
 				 this->TourLV->View = System::Windows::Forms::View::List;
 				 this->TourLV->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::TourLV_SelectedIndexChanged);
 				 // 
+				 // deleteBtn
+				 // 
+				 this->deleteBtn->Location = System::Drawing::Point(25, 135);
+				 this->deleteBtn->Margin = System::Windows::Forms::Padding(4);
+				 this->deleteBtn->Name = L"deleteBtn";
+				 this->deleteBtn->Size = System::Drawing::Size(100, 28);
+				 this->deleteBtn->TabIndex = 0;
+				 this->deleteBtn->Text = L"Delete";
+				 this->deleteBtn->UseVisualStyleBackColor = true;
+				 this->deleteBtn->Click += gcnew System::EventHandler(this, &MyForm::deleteBtn_Click);
+                 // 
 				 // MyForm
 				 // 
 				 this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -499,24 +513,32 @@ namespace OOP_GameClub {
 
 		dbData->Save();
 		fillTourList();
-		//fillGameList();
-		//fillMemberList();;
+	}
+    
+    private: System::Void deleteBtn_Click(System::Object^  sender, System::EventArgs^  e) {
+		
+		if (TourLV->SelectedItems->Count == 0) {
+			MessageBox::Show("Please select tournament to delete");
+			return;
+		}
+
+		for each (ListViewItem^ item in TourLV->SelectedItems) {
+            dbData->RemoveItem(Guid(item->ImageKey));
+        }
+
+		dbData->Save();
+		fillTourList();
 	}
 
+
 	private: System::Void TourLV_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-		for each(ListViewItem^ item in TourLV->CheckedItems)
-		{
-			item->Checked = false;
-		}
-		int index = 0;
-		for each (ListViewItem^ item in TourLV->SelectedItems) {
+    for each (ListViewItem^ item in TourLV->SelectedItems) {
 			Guid Id = Guid(item->ImageKey);
-			item->Checked = true;
-			String^ gameName = dbData->GetGameItems()[dbData->GetTournamentItems()[Id]->GetGameId()]->GetName();
 
 			ListView::ListViewItemCollection^ GameCollection = GameLV->Items;
 			GameCollection->Clear();
-			GameCollection->Add(gameName, dbData->GetTournamentItems()[Id]->GetGameId().ToString());
+			GameCollection->Add(dbData->GetGameItems()[dbData->GetTournamentItems()[Id]->GetGameId()]->GetName(), 
+                                dbData->GetTournamentItems()[Id]->GetGameId().ToString());
 
 			ListView::ListViewItemCollection^ MemberCollection = MemberLV->Items;
 			MemberCollection->Clear();

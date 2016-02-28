@@ -141,6 +141,33 @@ void DBEmulation::AddNewItem(Tournament^ tournament)
 	TournamentItems[tournament->GetId()] = tournament;
 }
 
+void DBEmulation::RemoveItem(System::Guid tournamentId)
+{
+    GameItems->Remove(TournamentItems[tournamentId]->GetGameId());
+    
+    List<Guid>^ memberList = GetMembersByTournament(tournamentId);
+    for each (Guid item in memberList)
+    {
+        MemberItems->Remove(item);
+    }
+    
+	//Filtering ids that will be removed
+	List<Guid>^ idsToRemove = gcnew List<Guid>();
+	for each(KeyValuePair<System::Guid, Participant^>^ item in ParticipantItems)
+	{
+        if (item->Value->GetTournamentId() == tournamentId) {
+			idsToRemove->Add(item->Key);
+        }
+    }
+
+	for each(Guid id in idsToRemove)
+	{
+		ParticipantItems->Remove(id);
+	}
+    
+    TournamentItems->Remove(tournamentId);
+}
+
 System::Collections::Generic::Dictionary<System::Guid, Game^>^ DBEmulation::GetGameItems()
 {
 	return GameItems;
@@ -170,6 +197,8 @@ System::Guid DBEmulation::GetTournamentByMember(System::Guid memberId)
             return item->Value->GetTournamentId();
         }
 	}
+
+	return Guid::NewGuid();
 }
 
 System::Collections::Generic::List<System::Guid>^ DBEmulation::GetMembersByTournament(System::Guid turnamentId)
@@ -286,7 +315,6 @@ Member^ DBEmulation::MemberDeserialisation(System::Xml::XmlNode^ member)
 Participant^ DBEmulation::ParticipantDeserialisation(System::Xml::XmlNode^ participant)
 {
 	XmlNodeList^ fields = participant->ChildNodes;
-	String^ name;
 	Guid tournament;
 	Guid member;
 	Guid id;
