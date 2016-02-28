@@ -450,6 +450,14 @@ namespace OOP_GameClub {
 
 		dbData->Save();
 	}
+    
+    private: System::Void updateDBStatus() {
+		gamesNumberL->Text = dbData->GetGameItems()->Count.ToString();
+		participantNumberL->Text = dbData->GetParticipantItems()->Count.ToString();
+		membersNumberL->Text = dbData->GetMemberItems()->Count.ToString();
+		tourNumberL->Text = dbData->GetTournamentItems()->Count.ToString();
+		fillTourList();
+	}
 
 	private: System::Void fillTourList() {
 		ListView::ListViewItemCollection^ TourCollection = TourLV->Items;
@@ -482,16 +490,8 @@ namespace OOP_GameClub {
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 		dbData = gcnew DBEmulation();
 		//init();
-
-		
-		dbData->Load();
-		gamesNumberL->Text = dbData->GetGameItems()->Count.ToString();
-		participantNumberL->Text = dbData->GetParticipantItems()->Count.ToString();
-		membersNumberL->Text = dbData->GetMemberItems()->Count.ToString();
-		tourNumberL->Text = dbData->GetTournamentItems()->Count.ToString();
-		fillTourList();
-		//fillGameList();
-		//fillMemberList();
+        dbData->Load();
+        updateDBStatus();
 	}
 	private: System::Void saveBtn_Click(System::Object^  sender, System::EventArgs^  e) {
 		if (memberNameTB->Text == ""
@@ -512,7 +512,7 @@ namespace OOP_GameClub {
 		dbData->AddNewItem(p1);
 
 		dbData->Save();
-		fillTourList();
+		updateDBStatus();
 	}
     
     private: System::Void deleteBtn_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -527,7 +527,7 @@ namespace OOP_GameClub {
         }
 
 		dbData->Save();
-		fillTourList();
+		updateDBStatus();
 	}
 
 

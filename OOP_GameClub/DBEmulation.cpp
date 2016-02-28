@@ -142,15 +142,7 @@ void DBEmulation::AddNewItem(Tournament^ tournament)
 }
 
 void DBEmulation::RemoveItem(System::Guid tournamentId)
-{
-    GameItems->Remove(TournamentItems[tournamentId]->GetGameId());
-    
-    List<Guid>^ memberList = GetMembersByTournament(tournamentId);
-    for each (Guid item in memberList)
-    {
-        MemberItems->Remove(item);
-    }
-    
+{  
 	//Filtering ids that will be removed
 	List<Guid>^ idsToRemove = gcnew List<Guid>();
 	for each(KeyValuePair<System::Guid, Participant^>^ item in ParticipantItems)
