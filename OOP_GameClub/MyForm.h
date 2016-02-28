@@ -58,23 +58,48 @@ namespace OOP_GameClub {
 	private: System::Windows::Forms::Label^  label7;
 	private: System::Windows::Forms::TextBox^  memberNameTB;
 	private: System::Windows::Forms::Label^  label5;
-	private: System::Windows::Forms::Label^  label10;
+
 	private: System::Windows::Forms::GroupBox^  groupBox3;
 	private: System::Windows::Forms::GroupBox^  groupBox4;
-	private: System::Windows::Forms::TextBox^  tourGameNameTB;
+
 	private: System::Windows::Forms::Label^  label11;
-	private: System::Windows::Forms::GroupBox^  groupBox5;
-    private: System::Windows::Forms::Button^  deleteBtn;
+
+
+
 
 
 
 
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::TextBox^  tourNameTB;
-	private: System::Windows::Forms::ListView^  MemberLV;
+
+
+
+
+	private: System::Windows::Forms::GroupBox^  groupBox6;
+	private: System::Windows::Forms::Label^  label9;
+	private: System::Windows::Forms::TextBox^  gameNameTB;
+	private: System::Windows::Forms::ComboBox^  selectGameCMB;
+
+
+
+	private: System::Windows::Forms::Button^  addTournamentBTN;
+	private: System::Windows::Forms::Button^  addMemberBTN;
+	private: System::Windows::Forms::Label^  label8;
+	private: System::Windows::Forms::ComboBox^  selectTourCMB;
+
+	private: System::Windows::Forms::Button^  addGameBTN;
+	private: System::Windows::Forms::Button^  deleteBtn;
 	private: System::Windows::Forms::ListView^  GameLV;
+	private: System::Windows::Forms::ListView^  MemberLV;
+	private: System::Windows::Forms::Label^  label;
+	private: System::Windows::Forms::Label^  label10;
+	private: System::Windows::Forms::Label^  label12;
+	private: System::Windows::Forms::GroupBox^  gb6;
 	private: System::Windows::Forms::ListView^  TourLV;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader1;
+
+
+
 	private: DBEmulation^ dbData;
 
 #pragma region Windows Form Designer generated code
@@ -98,25 +123,35 @@ namespace OOP_GameClub {
 				 this->memberNameTB = (gcnew System::Windows::Forms::TextBox());
 				 this->label5 = (gcnew System::Windows::Forms::Label());
 				 this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+				 this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
+				 this->addGameBTN = (gcnew System::Windows::Forms::Button());
+				 this->label9 = (gcnew System::Windows::Forms::Label());
+				 this->gameNameTB = (gcnew System::Windows::Forms::TextBox());
 				 this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
-				 this->tourGameNameTB = (gcnew System::Windows::Forms::TextBox());
+				 this->selectGameCMB = (gcnew System::Windows::Forms::ComboBox());
+				 this->addTournamentBTN = (gcnew System::Windows::Forms::Button());
 				 this->label11 = (gcnew System::Windows::Forms::Label());
 				 this->label3 = (gcnew System::Windows::Forms::Label());
 				 this->tourNameTB = (gcnew System::Windows::Forms::TextBox());
-				 this->label10 = (gcnew System::Windows::Forms::Label());
 				 this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+				 this->addMemberBTN = (gcnew System::Windows::Forms::Button());
+				 this->label8 = (gcnew System::Windows::Forms::Label());
+				 this->selectTourCMB = (gcnew System::Windows::Forms::ComboBox());
 				 this->saveBtn = (gcnew System::Windows::Forms::Button());
-                 this->deleteBtn = (gcnew System::Windows::Forms::Button());
-				 this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
-				 this->MemberLV = (gcnew System::Windows::Forms::ListView());
+				 this->deleteBtn = (gcnew System::Windows::Forms::Button());
 				 this->GameLV = (gcnew System::Windows::Forms::ListView());
+				 this->MemberLV = (gcnew System::Windows::Forms::ListView());
+				 this->label = (gcnew System::Windows::Forms::Label());
+				 this->label10 = (gcnew System::Windows::Forms::Label());
+				 this->label12 = (gcnew System::Windows::Forms::Label());
+				 this->gb6 = (gcnew System::Windows::Forms::GroupBox());
 				 this->TourLV = (gcnew System::Windows::Forms::ListView());
-				 this->columnHeader1 = (gcnew System::Windows::Forms::ColumnHeader());
 				 this->groupBox1->SuspendLayout();
 				 this->groupBox2->SuspendLayout();
+				 this->groupBox6->SuspendLayout();
 				 this->groupBox4->SuspendLayout();
 				 this->groupBox3->SuspendLayout();
-				 this->groupBox5->SuspendLayout();
+				 this->gb6->SuspendLayout();
 				 this->SuspendLayout();
 				 // 
 				 // label1
@@ -223,13 +258,13 @@ namespace OOP_GameClub {
 				 this->memberSurnameTB->Location = System::Drawing::Point(8, 91);
 				 this->memberSurnameTB->Margin = System::Windows::Forms::Padding(4);
 				 this->memberSurnameTB->Name = L"memberSurnameTB";
-				 this->memberSurnameTB->Size = System::Drawing::Size(132, 22);
+				 this->memberSurnameTB->Size = System::Drawing::Size(136, 22);
 				 this->memberSurnameTB->TabIndex = 3;
 				 // 
 				 // label7
 				 // 
 				 this->label7->AutoSize = true;
-				 this->label7->Location = System::Drawing::Point(12, 71);
+				 this->label7->Location = System::Drawing::Point(9, 70);
 				 this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 				 this->label7->Name = L"label7";
 				 this->label7->Size = System::Drawing::Size(65, 17);
@@ -238,10 +273,10 @@ namespace OOP_GameClub {
 				 // 
 				 // memberNameTB
 				 // 
-				 this->memberNameTB->Location = System::Drawing::Point(5, 42);
+				 this->memberNameTB->Location = System::Drawing::Point(8, 43);
 				 this->memberNameTB->Margin = System::Windows::Forms::Padding(4);
 				 this->memberNameTB->Name = L"memberNameTB";
-				 this->memberNameTB->Size = System::Drawing::Size(132, 22);
+				 this->memberNameTB->Size = System::Drawing::Size(136, 22);
 				 this->memberNameTB->TabIndex = 3;
 				 // 
 				 // label5
@@ -256,41 +291,90 @@ namespace OOP_GameClub {
 				 // 
 				 // groupBox2
 				 // 
+				 this->groupBox2->Controls->Add(this->groupBox6);
 				 this->groupBox2->Controls->Add(this->groupBox4);
-				 this->groupBox2->Controls->Add(this->label10);
 				 this->groupBox2->Controls->Add(this->groupBox3);
-				 this->groupBox2->Controls->Add(this->saveBtn);
 				 this->groupBox2->Location = System::Drawing::Point(16, 15);
 				 this->groupBox2->Margin = System::Windows::Forms::Padding(4);
 				 this->groupBox2->Name = L"groupBox2";
 				 this->groupBox2->Padding = System::Windows::Forms::Padding(4);
-				 this->groupBox2->Size = System::Drawing::Size(367, 198);
+				 this->groupBox2->Size = System::Drawing::Size(587, 265);
 				 this->groupBox2->TabIndex = 0;
 				 this->groupBox2->TabStop = false;
-				 this->groupBox2->Text = L"Add new player";
+				 this->groupBox2->Text = L"New";
+				 // 
+				 // groupBox6
+				 // 
+				 this->groupBox6->Controls->Add(this->addGameBTN);
+				 this->groupBox6->Controls->Add(this->label9);
+				 this->groupBox6->Controls->Add(this->gameNameTB);
+				 this->groupBox6->Location = System::Drawing::Point(200, 23);
+				 this->groupBox6->Name = L"groupBox6";
+				 this->groupBox6->Size = System::Drawing::Size(162, 220);
+				 this->groupBox6->TabIndex = 5;
+				 this->groupBox6->TabStop = false;
+				 this->groupBox6->Text = L"Game";
+				 // 
+				 // addGameBTN
+				 // 
+				 this->addGameBTN->Location = System::Drawing::Point(81, 190);
+				 this->addGameBTN->Name = L"addGameBTN";
+				 this->addGameBTN->Size = System::Drawing::Size(75, 23);
+				 this->addGameBTN->TabIndex = 8;
+				 this->addGameBTN->Text = L"Save";
+				 this->addGameBTN->UseVisualStyleBackColor = true;
+				 this->addGameBTN->Click += gcnew System::EventHandler(this, &MyForm::addGameBTN_Click);
+				 // 
+				 // label9
+				 // 
+				 this->label9->AutoSize = true;
+				 this->label9->Location = System::Drawing::Point(7, 23);
+				 this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+				 this->label9->Name = L"label9";
+				 this->label9->Size = System::Drawing::Size(45, 17);
+				 this->label9->TabIndex = 3;
+				 this->label9->Text = L"Name";
+				 // 
+				 // gameNameTB
+				 // 
+				 this->gameNameTB->Location = System::Drawing::Point(7, 43);
+				 this->gameNameTB->Name = L"gameNameTB";
+				 this->gameNameTB->Size = System::Drawing::Size(149, 22);
+				 this->gameNameTB->TabIndex = 0;
 				 // 
 				 // groupBox4
 				 // 
-				 this->groupBox4->Controls->Add(this->tourGameNameTB);
+				 this->groupBox4->Controls->Add(this->selectGameCMB);
+				 this->groupBox4->Controls->Add(this->addTournamentBTN);
 				 this->groupBox4->Controls->Add(this->label11);
 				 this->groupBox4->Controls->Add(this->label3);
 				 this->groupBox4->Controls->Add(this->tourNameTB);
-				 this->groupBox4->Location = System::Drawing::Point(196, 23);
+				 this->groupBox4->Location = System::Drawing::Point(407, 23);
 				 this->groupBox4->Margin = System::Windows::Forms::Padding(4);
 				 this->groupBox4->Name = L"groupBox4";
 				 this->groupBox4->Padding = System::Windows::Forms::Padding(4);
-				 this->groupBox4->Size = System::Drawing::Size(153, 123);
+				 this->groupBox4->Size = System::Drawing::Size(153, 220);
 				 this->groupBox4->TabIndex = 4;
 				 this->groupBox4->TabStop = false;
 				 this->groupBox4->Text = L"Tournament";
 				 // 
-				 // tourGameNameTB
+				 // selectGameCMB
 				 // 
-				 this->tourGameNameTB->Location = System::Drawing::Point(8, 91);
-				 this->tourGameNameTB->Margin = System::Windows::Forms::Padding(4);
-				 this->tourGameNameTB->Name = L"tourGameNameTB";
-				 this->tourGameNameTB->Size = System::Drawing::Size(132, 22);
-				 this->tourGameNameTB->TabIndex = 1;
+				 this->selectGameCMB->FormattingEnabled = true;
+				 this->selectGameCMB->Location = System::Drawing::Point(7, 91);
+				 this->selectGameCMB->Name = L"selectGameCMB";
+				 this->selectGameCMB->Size = System::Drawing::Size(132, 24);
+				 this->selectGameCMB->TabIndex = 7;
+				 this->selectGameCMB->Text = L"Select Game";
+				 // 
+				 // addTournamentBTN
+				 // 
+				 this->addTournamentBTN->Location = System::Drawing::Point(65, 190);
+				 this->addTournamentBTN->Name = L"addTournamentBTN";
+				 this->addTournamentBTN->Size = System::Drawing::Size(75, 23);
+				 this->addTournamentBTN->TabIndex = 6;
+				 this->addTournamentBTN->Text = L"Save";
+				 this->addTournamentBTN->UseVisualStyleBackColor = true;
 				 // 
 				 // label11
 				 // 
@@ -320,18 +404,11 @@ namespace OOP_GameClub {
 				 this->tourNameTB->Size = System::Drawing::Size(132, 22);
 				 this->tourNameTB->TabIndex = 3;
 				 // 
-				 // label10
-				 // 
-				 this->label10->AutoSize = true;
-				 this->label10->Location = System::Drawing::Point(167, 80);
-				 this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-				 this->label10->Name = L"label10";
-				 this->label10->Size = System::Drawing::Size(20, 17);
-				 this->label10->TabIndex = 0;
-				 this->label10->Text = L"to";
-				 // 
 				 // groupBox3
 				 // 
+				 this->groupBox3->Controls->Add(this->addMemberBTN);
+				 this->groupBox3->Controls->Add(this->label8);
+				 this->groupBox3->Controls->Add(this->selectTourCMB);
 				 this->groupBox3->Controls->Add(this->memberSurnameTB);
 				 this->groupBox3->Controls->Add(this->label7);
 				 this->groupBox3->Controls->Add(this->label5);
@@ -340,14 +417,43 @@ namespace OOP_GameClub {
 				 this->groupBox3->Margin = System::Windows::Forms::Padding(4);
 				 this->groupBox3->Name = L"groupBox3";
 				 this->groupBox3->Padding = System::Windows::Forms::Padding(4);
-				 this->groupBox3->Size = System::Drawing::Size(151, 123);
+				 this->groupBox3->Size = System::Drawing::Size(151, 220);
 				 this->groupBox3->TabIndex = 4;
 				 this->groupBox3->TabStop = false;
 				 this->groupBox3->Text = L"Member";
 				 // 
+				 // addMemberBTN
+				 // 
+				 this->addMemberBTN->Location = System::Drawing::Point(69, 190);
+				 this->addMemberBTN->Name = L"addMemberBTN";
+				 this->addMemberBTN->Size = System::Drawing::Size(75, 23);
+				 this->addMemberBTN->TabIndex = 7;
+				 this->addMemberBTN->Text = L"Save";
+				 this->addMemberBTN->UseVisualStyleBackColor = true;
+				 // 
+				 // label8
+				 // 
+				 this->label8->AutoSize = true;
+				 this->label8->Location = System::Drawing::Point(9, 128);
+				 this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+				 this->label8->Name = L"label8";
+				 this->label8->Size = System::Drawing::Size(128, 17);
+				 this->label8->TabIndex = 5;
+				 this->label8->Text = L"Select Tournament";
+				 this->label8->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+				 // 
+				 // selectTourCMB
+				 // 
+				 this->selectTourCMB->FormattingEnabled = true;
+				 this->selectTourCMB->Location = System::Drawing::Point(8, 148);
+				 this->selectTourCMB->Name = L"selectTourCMB";
+				 this->selectTourCMB->Size = System::Drawing::Size(136, 24);
+				 this->selectTourCMB->TabIndex = 4;
+				 this->selectTourCMB->Text = L"Select Tournament";
+				 // 
 				 // saveBtn
 				 // 
-				 this->saveBtn->Location = System::Drawing::Point(249, 154);
+				 this->saveBtn->Location = System::Drawing::Point(662, 183);
 				 this->saveBtn->Margin = System::Windows::Forms::Padding(4);
 				 this->saveBtn->Name = L"saveBtn";
 				 this->saveBtn->Size = System::Drawing::Size(100, 28);
@@ -356,52 +462,9 @@ namespace OOP_GameClub {
 				 this->saveBtn->UseVisualStyleBackColor = true;
 				 this->saveBtn->Click += gcnew System::EventHandler(this, &MyForm::saveBtn_Click);
 				 // 
-				 // groupBox5
-				 // 
-				 this->groupBox5->Controls->Add(this->MemberLV);
-				 this->groupBox5->Controls->Add(this->GameLV);
-				 this->groupBox5->Controls->Add(this->TourLV);
-                 this->groupBox5->Controls->Add(this->deleteBtn);
-				 this->groupBox5->Location = System::Drawing::Point(16, 238);
-				 this->groupBox5->Margin = System::Windows::Forms::Padding(4);
-				 this->groupBox5->Name = L"groupBox5";
-				 this->groupBox5->Padding = System::Windows::Forms::Padding(4);
-				 this->groupBox5->Size = System::Drawing::Size(800, 292);
-				 this->groupBox5->TabIndex = 4;
-				 this->groupBox5->TabStop = false;
-				 // 
-				 // MemberLV
-				 // 
-				 this->MemberLV->Location = System::Drawing::Point(507, 12);
-				 this->MemberLV->Name = L"MemberLV";
-				 this->MemberLV->Size = System::Drawing::Size(121, 97);
-				 this->MemberLV->TabIndex = 2;
-				 this->MemberLV->UseCompatibleStateImageBehavior = false;
-				 this->MemberLV->View = System::Windows::Forms::View::List;
-				 // 
-				 // GameLV
-				 // 
-				 this->GameLV->Location = System::Drawing::Point(363, 12);
-				 this->GameLV->Name = L"GameLV";
-				 this->GameLV->Size = System::Drawing::Size(121, 97);
-				 this->GameLV->TabIndex = 1;
-				 this->GameLV->UseCompatibleStateImageBehavior = false;
-				 this->GameLV->View = System::Windows::Forms::View::List;
-				 // 
-				 // TourLV
-				 // 
-				 this->TourLV->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(1) { this->columnHeader1 });
-				 this->TourLV->Location = System::Drawing::Point(13, 12);
-				 this->TourLV->Name = L"TourLV";
-				 this->TourLV->Size = System::Drawing::Size(289, 97);
-				 this->TourLV->TabIndex = 0;
-				 this->TourLV->UseCompatibleStateImageBehavior = false;
-				 this->TourLV->View = System::Windows::Forms::View::List;
-				 this->TourLV->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::TourLV_SelectedIndexChanged);
-				 // 
 				 // deleteBtn
 				 // 
-				 this->deleteBtn->Location = System::Drawing::Point(25, 135);
+				 this->deleteBtn->Location = System::Drawing::Point(682, 206);
 				 this->deleteBtn->Margin = System::Windows::Forms::Padding(4);
 				 this->deleteBtn->Name = L"deleteBtn";
 				 this->deleteBtn->Size = System::Drawing::Size(100, 28);
@@ -409,7 +472,81 @@ namespace OOP_GameClub {
 				 this->deleteBtn->Text = L"Delete";
 				 this->deleteBtn->UseVisualStyleBackColor = true;
 				 this->deleteBtn->Click += gcnew System::EventHandler(this, &MyForm::deleteBtn_Click);
-                 // 
+				 // 
+				 // GameLV
+				 // 
+				 this->GameLV->Location = System::Drawing::Point(281, 41);
+				 this->GameLV->Name = L"GameLV";
+				 this->GameLV->Size = System::Drawing::Size(245, 97);
+				 this->GameLV->TabIndex = 1;
+				 this->GameLV->UseCompatibleStateImageBehavior = false;
+				 this->GameLV->View = System::Windows::Forms::View::List;
+				 // 
+				 // MemberLV
+				 // 
+				 this->MemberLV->Location = System::Drawing::Point(537, 41);
+				 this->MemberLV->Name = L"MemberLV";
+				 this->MemberLV->Size = System::Drawing::Size(245, 97);
+				 this->MemberLV->TabIndex = 2;
+				 this->MemberLV->UseCompatibleStateImageBehavior = false;
+				 this->MemberLV->View = System::Windows::Forms::View::List;
+				 // 
+				 // label
+				 // 
+				 this->label->AutoSize = true;
+				 this->label->Location = System::Drawing::Point(17, 21);
+				 this->label->Name = L"label";
+				 this->label->Size = System::Drawing::Size(115, 17);
+				 this->label->TabIndex = 3;
+				 this->label->Text = L"Tournament List:";
+				 // 
+				 // label10
+				 // 
+				 this->label10->AutoSize = true;
+				 this->label10->Location = System::Drawing::Point(278, 19);
+				 this->label10->Name = L"label10";
+				 this->label10->Size = System::Drawing::Size(127, 17);
+				 this->label10->TabIndex = 4;
+				 this->label10->Text = L"Tournament Game";
+				 // 
+				 // label12
+				 // 
+				 this->label12->AutoSize = true;
+				 this->label12->Location = System::Drawing::Point(534, 21);
+				 this->label12->Name = L"label12";
+				 this->label12->Size = System::Drawing::Size(86, 17);
+				 this->label12->TabIndex = 5;
+				 this->label12->Text = L"Participants:";
+				 // 
+				 // gb6
+				 // 
+				 this->gb6->Controls->Add(this->TourLV);
+				 this->gb6->Controls->Add(this->label12);
+				 this->gb6->Controls->Add(this->label10);
+				 this->gb6->Controls->Add(this->label);
+				 this->gb6->Controls->Add(this->MemberLV);
+				 this->gb6->Controls->Add(this->GameLV);
+				 this->gb6->Controls->Add(this->deleteBtn);
+				 this->gb6->Location = System::Drawing::Point(16, 289);
+				 this->gb6->Margin = System::Windows::Forms::Padding(4);
+				 this->gb6->Name = L"gb6";
+				 this->gb6->Padding = System::Windows::Forms::Padding(4);
+				 this->gb6->Size = System::Drawing::Size(800, 242);
+				 this->gb6->TabIndex = 4;
+				 this->gb6->TabStop = false;
+				 this->gb6->Text = L"Information";
+				 // 
+				 // TourLV
+				 // 
+				 this->TourLV->Location = System::Drawing::Point(20, 41);
+				 this->TourLV->Name = L"TourLV";
+				 this->TourLV->Size = System::Drawing::Size(245, 97);
+				 this->TourLV->Sorting = System::Windows::Forms::SortOrder::Ascending;
+				 this->TourLV->TabIndex = 0;
+				 this->TourLV->UseCompatibleStateImageBehavior = false;
+				 this->TourLV->View = System::Windows::Forms::View::List;
+				 this->TourLV->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::TourLV_SelectedIndexChanged);
+				 // 
 				 // MyForm
 				 // 
 				 this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -417,7 +554,8 @@ namespace OOP_GameClub {
 				 this->ClientSize = System::Drawing::Size(832, 544);
 				 this->Controls->Add(this->groupBox2);
 				 this->Controls->Add(this->groupBox1);
-				 this->Controls->Add(this->groupBox5);
+				 this->Controls->Add(this->saveBtn);
+				 this->Controls->Add(this->gb6);
 				 this->Margin = System::Windows::Forms::Padding(4);
 				 this->Name = L"MyForm";
 				 this->Text = L"Game Club";
@@ -425,12 +563,14 @@ namespace OOP_GameClub {
 				 this->groupBox1->ResumeLayout(false);
 				 this->groupBox1->PerformLayout();
 				 this->groupBox2->ResumeLayout(false);
-				 this->groupBox2->PerformLayout();
+				 this->groupBox6->ResumeLayout(false);
+				 this->groupBox6->PerformLayout();
 				 this->groupBox4->ResumeLayout(false);
 				 this->groupBox4->PerformLayout();
 				 this->groupBox3->ResumeLayout(false);
 				 this->groupBox3->PerformLayout();
-				 this->groupBox5->ResumeLayout(false);
+				 this->gb6->ResumeLayout(false);
+				 this->gb6->PerformLayout();
 				 this->ResumeLayout(false);
 
 			 }
@@ -450,8 +590,8 @@ namespace OOP_GameClub {
 
 		dbData->Save();
 	}
-    
-    private: System::Void updateDBStatus() {
+
+	private: System::Void updateDBStatus() {
 		gamesNumberL->Text = dbData->GetGameItems()->Count.ToString();
 		participantNumberL->Text = dbData->GetParticipantItems()->Count.ToString();
 		membersNumberL->Text = dbData->GetMemberItems()->Count.ToString();
@@ -466,8 +606,8 @@ namespace OOP_GameClub {
 		{
 			TourCollection->Add(item->Value->GetName(), item->Key.ToString());
 		}
-		}
-	
+	}
+
 
 	private: System::Void fillGameList() {
 		ListView::ListViewItemCollection^ GameCollection = GameLV->Items;
@@ -476,7 +616,7 @@ namespace OOP_GameClub {
 		{
 			GameCollection->Add(item->Value->GetName(), item->Key.ToString());
 		}
-		}
+	}
 
 	private: System::Void fillMemberList() {
 		ListView::ListViewItemCollection^ MemberCollection = MemberLV->Items;
@@ -485,24 +625,31 @@ namespace OOP_GameClub {
 		{
 			MemberCollection->Add(item->Value->GetName() + " " + item->Value->GetSurname(), item->Key.ToString());
 		}
-		}
- 
+	}
+
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 		dbData = gcnew DBEmulation();
 		//init();
-        dbData->Load();
-        updateDBStatus();
+		dbData->Load();
+		updateDBStatus();
+	}
+
+	
+	// Game Table: F for separate save of the new game.
+	private: System::Void addGameBTN_Click(System::Object^  sender, System::EventArgs^  e) {
+		if ()
+
 	}
 	private: System::Void saveBtn_Click(System::Object^  sender, System::EventArgs^  e) {
 		if (memberNameTB->Text == ""
 			|| memberSurnameTB->Text == ""
 			|| tourNameTB->Text == ""
-			|| tourGameNameTB->Text == "") {
+			|| selectGameCMB->Text == "") {
 			MessageBox::Show("Please fill in all required fields");
 			return;
 		}
 
-		Game^ g1 = gcnew Game(tourGameNameTB->Text);
+		Game^ g1 = gcnew Game(selectGameCMB->Text);
 		dbData->AddNewItem(g1);
 		Member^ m1 = gcnew Member(memberNameTB->Text, memberSurnameTB->Text);
 		dbData->AddNewItem(m1);
@@ -514,17 +661,17 @@ namespace OOP_GameClub {
 		dbData->Save();
 		updateDBStatus();
 	}
-    
-    private: System::Void deleteBtn_Click(System::Object^  sender, System::EventArgs^  e) {
-		
+
+	private: System::Void deleteBtn_Click(System::Object^  sender, System::EventArgs^  e) {
+
 		if (TourLV->SelectedItems->Count == 0) {
 			MessageBox::Show("Please select tournament to delete");
 			return;
 		}
 
 		for each (ListViewItem^ item in TourLV->SelectedItems) {
-            dbData->RemoveItem(Guid(item->ImageKey));
-        }
+			dbData->RemoveItem(Guid(item->ImageKey));
+		}
 
 		dbData->Save();
 		updateDBStatus();
@@ -532,13 +679,13 @@ namespace OOP_GameClub {
 
 
 	private: System::Void TourLV_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-    for each (ListViewItem^ item in TourLV->SelectedItems) {
+		for each (ListViewItem^ item in TourLV->SelectedItems) {
 			Guid Id = Guid(item->ImageKey);
 
 			ListView::ListViewItemCollection^ GameCollection = GameLV->Items;
 			GameCollection->Clear();
-			GameCollection->Add(dbData->GetGameItems()[dbData->GetTournamentItems()[Id]->GetGameId()]->GetName(), 
-                                dbData->GetTournamentItems()[Id]->GetGameId().ToString());
+			GameCollection->Add(dbData->GetGameItems()[dbData->GetTournamentItems()[Id]->GetGameId()]->GetName(),
+				dbData->GetTournamentItems()[Id]->GetGameId().ToString());
 
 			ListView::ListViewItemCollection^ MemberCollection = MemberLV->Items;
 			MemberCollection->Clear();
